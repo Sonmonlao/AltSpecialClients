@@ -24,16 +24,16 @@ namespace AltSpecialClients
                     }
                     else
                     {
-                        Console.WriteLine("Ошибка: количество клиентов должно быть от 1 до 1000. Пожалуйста, попробуйте еще раз.");
+                        Console.WriteLine("Количество клиентов должно быть от 1 до 1000. Пожалуйста, попробуйте еще раз.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Ошибка: неверный формат ввода. Пожалуйста, введите целое число.");
+                    Console.WriteLine("Неверный формат ввода. Пожалуйста, введите целое число.");
                 }
             }
 
-            Console.WriteLine("Введите номер клиента и его фамилию через пробел:");
+            Console.WriteLine("Введите номер клиента и его ник через пробел:");
 
             Dictionary<int, string> clientsDict = new Dictionary<int, string>();
 
@@ -46,14 +46,14 @@ namespace AltSpecialClients
                         string client = Console.ReadLine();
                         string[] parts = client.Split(' ');
 
-                        if (parts.Length != 2 || !char.IsLetter(parts[1][0]))
+                        if (parts.Length != 2)
                         {
-                            throw new FormatException("Ошибка: номер и фамилия должны быть разделены пробелом, а фамилия должна начинаться с буквы.");
+                            throw new FormatException("Номер и ник должны быть разделены пробелом.");
                         }
 
                         if (!char.IsDigit(client[0]))
                         {
-                            throw new FormatException("Ошибка: номер клиента должен начинаться с цифры.");
+                            throw new FormatException("Номер клиента должен начинаться с цифры.");
                         }
 
                         clientsDict.Add(Convert.ToInt32(parts[0]), parts[1]);
@@ -83,7 +83,6 @@ namespace AltSpecialClients
                     {
                         continue;
                     }
-                    
                 }
                 if (sum % 2 != 0)
                 {
